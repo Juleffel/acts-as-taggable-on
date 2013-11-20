@@ -5,9 +5,9 @@ module ActsAsTaggableOn
       return [] if tags.empty?
 
       sorted_tags = tags.sort_by(&:count).reverse
-      if (number_max_of_tags) {
+      if number_max_of_tags
         sorted_tags = sorted_tags[0..(number_max_of_tags-1)]
-      }
+      end
       max_count = sorted_tags.first.count.to_f
 
       sorted_tags.shuffle.each do |tag|
