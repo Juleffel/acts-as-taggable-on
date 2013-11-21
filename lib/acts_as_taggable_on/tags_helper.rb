@@ -1,11 +1,11 @@
 module ActsAsTaggableOn
   module TagsHelper
     # See the README for an example using tag_cloud.
-    def tag_cloud(tags, classes, number_max_of_tags)
+    def tag_cloud(tags, classes, number_max_of_tags = 0)
       return [] if tags.empty?
 
       sorted_tags = tags.sort_by(&:count).reverse
-      if number_max_of_tags
+      if number_max_of_tags != 0
         sorted_tags = sorted_tags[0..(number_max_of_tags-1)]
       end
       max_count = sorted_tags.first.count.to_f
